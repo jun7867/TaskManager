@@ -2,7 +2,12 @@ package user.management.oodp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import user.management.oodp.SignUpCheck;
+import user.management.oodp.SignUp;
  
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -75,7 +80,9 @@ public class Login extends JFrame{
         btnSignUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	SignUpCheck signUp = new SignUpCheck();
+            	SignUp signUp = new SignUp();
+            	signUp.SingUp();
+            	//SignUpCheck signUp = new SignUpCheck();
                 //userText.setText("");
                 //passText.setText("");
             }
@@ -93,17 +100,41 @@ public class Login extends JFrame{
     }
    
     public void isLoginCheck(){
-        if(userText.getText().equals("test") && new String(passText.getPassword()).equals("1234")){
+    	try {
+    		String s;
+    		String[] array;
+    		BufferedReader bos = new BufferedReader(new FileReader("user.txt"));
+    		while((s=bos.readLine())!=null){
+    			array=s.split("/");
+    		if(userText.getText().equals(array[1])&&new String(passText.getPassword()).equals(array[2])) {
+    			JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
+    			main.showFrameTest();
+    		}else {
+    			JOptionPane.showMessageDialog(null, "로그인 실패하였습니다.");
+    		}
+    		}
+    		bos.close();
+    		dispose();
+    	}catch (IOException E10) {
+    		E10.printStackTrace();
+    	}
+    	
+	
+    	
+    	//확인
+        /*if(userText.getText().equals("test") && new String(passText.getPassword()).equals("1234")){
             JOptionPane.showMessageDialog(null, "Success");
             bLoginCheck = true;
-           
+            
             // 로그인 성공이라면 매니져창 뛰우기
             if(isLogin()){
                 main.showFrameTest(); // 메인창 메소드를 이용해 창뛰우기
             }                  
         }else{
             JOptionPane.showMessageDialog(null, "Faild");
-        }
+        }*/
+        
+        
     }
  
    
