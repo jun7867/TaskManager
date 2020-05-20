@@ -104,6 +104,7 @@ public class Login extends JFrame{
     			JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
     			isLoginSucceed = true;
     			main.gotoMenu();
+    			dispose();
     		}else {
     			continue;
     		}

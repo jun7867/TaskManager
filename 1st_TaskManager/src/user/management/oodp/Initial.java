@@ -16,6 +16,7 @@ public class Initial{
     public void gotoMenu(){
         login.dispose();
         this.menu = new Menu();
+        menu.screen("안녕");
     }
  
 }
