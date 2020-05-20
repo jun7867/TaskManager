@@ -2,19 +2,25 @@ package user.management.oodp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class SignUp extends JFrame{
-	public void SingUp() {
-		JPanel p = new JPanel();
+	boolean isIdUnique=false;
+	public void SingUp() throws FileNotFoundException {
+		JPanel panel = new JPanel();
 		Label l1 = new Label("이름");
 		Label l2 = new Label("아이디");
-		Label l3 = new Label("패스워드");
-		Label l4 = new Label("주소");
-		Label l5 = new Label("추가사항");
+		Label l3 = new Label("비밀번호");
+		Label l4 = new Label("소속");
+		Label l5 = new Label("소개");
 		add(l1);
 		add(l2);
 		add(l3);
@@ -28,13 +34,15 @@ public class SignUp extends JFrame{
 		add(t1);
 		add(t2);
 		add(t3);
+		t3.setEchoChar('*');
 		add(t4);
 		add(t5);
-		t3.setEchoChar('*');
 		JButton j1 = new JButton("등록");
 		JButton j2 = new JButton("취소");
+		JButton j3 = new JButton("중복확인");
 		add(j1);
 		add(j2);
+		add(j3);
 		l1.setBounds(40, 10, 40, 40);
 		l2.setBounds(40, 50, 40, 40);
 		l3.setBounds(40, 90, 60, 40);
@@ -47,8 +55,9 @@ public class SignUp extends JFrame{
 		t5.setBounds(120, 180, 280, 120);
 		j1.setBounds(125, 330, 80, 30);
 		j2.setBounds(240, 330, 80, 30);
-		add(p);
-		setSize(500,500);
+		j3.setBounds(330,50,120,35);
+		add(panel);
+		setSize(500,400);
 		setTitle("회원가입");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -57,18 +66,58 @@ public class SignUp extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				try {
 					BufferedWriter bos = new BufferedWriter(new FileWriter("user.txt", true));
-					bos.write(t1.getText()+"/");
-					bos.write(t2.getText()+"/");
-					bos.write(t3.getText()+"/");
-					bos.write(t4.getText()+"/");
-					bos.write(t5.getText()+"\r\n");
-					bos.close();
-					JOptionPane.showMessageDialog(null, "회원가입을 축하합니다!!!");
-					dispose();
+					if(!isIdUnique) {
+						JOptionPane.showMessageDialog(null, "아이디 중복 확인을 해주세요.");
+					}
+					else {
+						bos.write(t1.getText()+"/");
+						bos.write(t2.getText()+"/");
+						bos.write(t3.getText()+"/");
+						bos.write(t4.getText()+"/");
+						bos.write(t5.getText()+"\r\n");
+						bos.close();
+						JOptionPane.showMessageDialog(null, "회원가입을 축하합니다!");
+						dispose();
+					}
 				}catch(Exception ex) {
 						JOptionPane.showMessageDialog(null, "회원가입에 실패했습니다.");
 				}
 				
+			}
+		});
+		j2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
+		j3.addActionListener(new ActionListener() {
+			String str;
+			String[] array;
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					try {
+			    		BufferedReader logbuff = new BufferedReader(new FileReader("user.txt"));
+			    		boolean duplicate = false;
+			    		while((str=logbuff.readLine())!=null){
+							array=str.split("/");
+							if(t2.getText().equals(array[1])) {
+								JOptionPane.showMessageDialog(null, "이미 존재하는 아이디입니다.");
+							    duplicate = true;
+							    break;
+							}else {
+								continue;
+							}
+			    		}
+			    		if(!duplicate) {
+			    			isIdUnique = true;
+			    			JOptionPane.showMessageDialog(null, "사용가능한 ID입니다.");
+			    		}
+					}
+					catch (IOException E10) {
+			    		E10.printStackTrace();
+			    	}
 			}
 		});
 	}

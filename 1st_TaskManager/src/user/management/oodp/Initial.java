@@ -8,17 +8,14 @@ public class Initial{
     Menu menu;
    
     public static void main(String[] args) {
-       
-        // 메인클래스 실행
         Initial main = new Initial();
-        main.login = new Login(); // 로그인창 보이기
-        main.login.setMain(main); // 로그인창에게 메인 클래스보내기
+        main.login = new Login();
+        main.login.setMain(main);
     }
    
-    // 테스트프레임창
-    public void showFrameTest(){
-        login.dispose(); // 로그인창닫기
-        this.menu = new Menu(); // 테스트프레임 오픈
+    public void gotoMenu(){
+        login.dispose();
+        this.menu = new Menu();
     }
  
 }
