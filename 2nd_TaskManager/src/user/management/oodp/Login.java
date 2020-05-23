@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import user.management.oodp.SignUpCheck;
 import user.management.oodp.SignUp;
  
 import javax.swing.JButton;
@@ -17,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
- 
+
 public class Login extends JFrame{
     private Initial main;
     private JButton btnLogin;
@@ -26,19 +25,22 @@ public class Login extends JFrame{
     private JTextField userText;
     private boolean isloginChecked;
  
-    public Login() {
+    //Singleton 디자인 패턴
+    private static Login loginInstance = new Login();
+    private Login(){
         setTitle("login");
         setSize(280, 150);
         setResizable(false);
         setLocation(800, 450);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-       
+        setDefaultCloseOperation(EXIT_ON_CLOSE);   
         JPanel panel = new JPanel();
         placeLoginPanel(panel);
-       
         add(panel);
-       
         setVisible(true);
+    }
+    
+    public static Login getInstance() {
+    	return loginInstance;
     }
    
     public void placeLoginPanel(JPanel panel){
@@ -93,36 +95,23 @@ public class Login extends JFrame{
     }
    
     public void isLoginCheck(){
-    	try {
-    		String str;
-    		String[] array;
-    		boolean isLoginSucceed = false;
-    		BufferedReader logbuff = new BufferedReader(new FileReader("user.txt"));
-    		while((str=logbuff.readLine())!=null){
-    			array=str.split("/");
-    		if(userText.getText().equals(array[1]) && new String(passText.getPassword()).equals(array[2])) {
-    			JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
-    			isLoginSucceed = true;
-    			main.gotoMenu();
-    			dispose();
-    		}else {
-    			continue;
-    		}
-    		}
-    		if(!isLoginSucceed)
-    			JOptionPane.showMessageDialog(null, "로그인 실패하였습니다.");
-    		logbuff.close();
-    	}catch (IOException E10) {
-    		E10.printStackTrace();
+		boolean isLoginSucceed = false;
+    	UserDAO userdao = new UserDAO();
+    	UserDTO user = new UserDTO() ;
+    	user = userdao.getUserUsingId(userText.getText());
+    	if(user!=null &&  new String(passText.getPassword()).equals(user.getPassword())) {
+			JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
+			isLoginSucceed = true;
+			main.gotoMenu(user);
+			dispose();
+    	}
+    	else {
+    		JOptionPane.showMessageDialog(null, "로그인 실패하였습니다.");
     	}
     }
  
     public void setMain(Initial main) {
         this.main = main;
-    }
- 
-    public boolean isLogin() {     
-        return isloginChecked;
     }
  
 }

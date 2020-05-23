@@ -12,6 +12,8 @@ import java.io.IOException;
 import javax.swing.*;
 import java.awt.*;
 
+import user.management.oodp.UserDAO;
+
 public class SignUp extends JFrame{
 	boolean isIdUnique=false;
 	public void SingUp() throws FileNotFoundException {
@@ -64,25 +66,13 @@ public class SignUp extends JFrame{
 		j1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					BufferedWriter bos = new BufferedWriter(new FileWriter("user.txt", true));
-					if(!isIdUnique) {
-						JOptionPane.showMessageDialog(null, "아이디 중복 확인을 해주세요.");
-					}
-					else {
-						bos.write(t1.getText()+"/");
-						bos.write(t2.getText()+"/");
-						bos.write(t3.getText()+"/");
-						bos.write(t4.getText()+"/");
-						bos.write(t5.getText()+"\r\n");
-						bos.close();
-						JOptionPane.showMessageDialog(null, "회원가입을 축하합니다!");
-						dispose();
-					}
-				}catch(Exception ex) {
-						JOptionPane.showMessageDialog(null, "회원가입에 실패했습니다.");
+				UserDAO userDAO = new UserDAO();
+				if(!isIdUnique) 
+					JOptionPane.showMessageDialog(null, "아이디 중복 확인을 해주세요.");
+				else {
+					userDAO.addUser(t1.getText(),t2.getText(),t3.getText(),t4.getText(),t5.getText());
+					dispose();
 				}
-				
 			}
 		});
 		j2.addActionListener(new ActionListener() {

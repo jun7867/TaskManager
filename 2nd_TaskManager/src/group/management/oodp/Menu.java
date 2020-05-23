@@ -19,12 +19,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import user.management.oodp.SignUp;
+import user.management.oodp.UserDTO;
 
 public class Menu extends JFrame implements ActionListener{
+	UserDTO user = new UserDTO();
 	
-	public void screen(String userName) {
+	public void screen(UserDTO user) {
 		JPanel panel = new JPanel();
-		Label l1 = new Label("환영합니다.	"+ userName +" 님!!");
+		Label l1 = new Label("환영합니다.	"+ user.getName() +" 님!!");
 		add(l1);
 		l1.setBounds(0, 0, 200, 40);
 		JButton j1 = new JButton("그룹 생성"); add(j1);
@@ -45,7 +47,7 @@ public class Menu extends JFrame implements ActionListener{
 				g_array=g_str.split("/");
 				int j=2;
 				while(!g_array[j].equals("!end!")) {
-					if(g_array[j].equals(userName)) {
+					if(g_array[j].equals(user.getName())) {
 						btn[i]=new JButton("");
 						btn[i].setText(g_array[1]);
 						add(btn[i]);
@@ -92,7 +94,7 @@ public class Menu extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Menu menu = new Menu();
-		        menu.screen(userName);
+		        menu.screen(user);
 			}
 		});
 	}
