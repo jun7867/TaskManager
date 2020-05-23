@@ -95,17 +95,6 @@ public class Menu extends JFrame implements ActionListener{
 		        menu.screen(userName);
 			}
 		});
-		
-		/*for(int k=0; k<i; i++) {
-			btn[k].addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, btn[k].getText()+"로 이동 기능 구현 예정");
-				}
-			});
-		}*/
-		
-	
 	}
 	
 	public void actionPerformed(ActionEvent e) {
