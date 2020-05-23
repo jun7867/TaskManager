@@ -3,6 +3,7 @@ package user.management.oodp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -19,44 +20,34 @@ import javax.swing.JTextField;
  
 public class Login extends JFrame{
     private Initial main;
-   
     private JButton btnLogin;
     private JButton btnSignUp;
     private JPasswordField passText;
     private JTextField userText;
-    private boolean bLoginCheck;
-   
-    public static void main(String[] args) {
-        //new LoginView();
-    }
+    private boolean isloginChecked;
  
     public Login() {
-        // setting
         setTitle("login");
         setSize(280, 150);
         setResizable(false);
         setLocation(800, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
        
-        // panel
         JPanel panel = new JPanel();
         placeLoginPanel(panel);
        
-       
-        // add
         add(panel);
        
-        // visiible
         setVisible(true);
     }
    
     public void placeLoginPanel(JPanel panel){
         panel.setLayout(null);     
-        JLabel userLabel = new JLabel("User");
+        JLabel userLabel = new JLabel("ID");
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
        
-        JLabel passLabel = new JLabel("Pass");
+        JLabel passLabel = new JLabel("Password");
         passLabel.setBounds(10, 40, 80, 25);
         panel.add(passLabel);
        
@@ -81,10 +72,12 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
             	SignUp signUp = new SignUp();
-            	signUp.SingUp();
-            	//SignUpCheck signUp = new SignUpCheck();
-                //userText.setText("");
-                //passText.setText("");
+            	try {
+					signUp.SingUp();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
         });
        
@@ -101,51 +94,35 @@ public class Login extends JFrame{
    
     public void isLoginCheck(){
     	try {
-    		String s;
+    		String str;
     		String[] array;
-    		BufferedReader bos = new BufferedReader(new FileReader("user.txt"));
-    		while((s=bos.readLine())!=null){
-    			array=s.split("/");
-    		if(userText.getText().equals(array[1])&&new String(passText.getPassword()).equals(array[2])) {
+    		boolean isLoginSucceed = false;
+    		BufferedReader logbuff = new BufferedReader(new FileReader("user.txt"));
+    		while((str=logbuff.readLine())!=null){
+    			array=str.split("/");
+    		if(userText.getText().equals(array[1]) && new String(passText.getPassword()).equals(array[2])) {
     			JOptionPane.showMessageDialog(null, "로그인 되었습니다.");
-    			main.showFrameTest();
+    			isLoginSucceed = true;
+    			main.gotoMenu();
+    			dispose();
     		}else {
+    			continue;
+    		}
+    		}
+    		if(!isLoginSucceed)
     			JOptionPane.showMessageDialog(null, "로그인 실패하였습니다.");
-    		}
-    		}
-    		bos.close();
-    		dispose();
+    		logbuff.close();
     	}catch (IOException E10) {
     		E10.printStackTrace();
     	}
-    	
-	
-    	
-    	//확인
-        /*if(userText.getText().equals("test") && new String(passText.getPassword()).equals("1234")){
-            JOptionPane.showMessageDialog(null, "Success");
-            bLoginCheck = true;
-            
-            // 로그인 성공이라면 매니져창 뛰우기
-            if(isLogin()){
-                main.showFrameTest(); // 메인창 메소드를 이용해 창뛰우기
-            }                  
-        }else{
-            JOptionPane.showMessageDialog(null, "Faild");
-        }*/
-        
-        
     }
  
-   
-    // mainProcess와 연동
     public void setMain(Initial main) {
         this.main = main;
     }
-   
  
     public boolean isLogin() {     
-        return bLoginCheck;
+        return isloginChecked;
     }
  
 }
