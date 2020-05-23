@@ -1,11 +1,11 @@
 package user.management.oodp;
 
 import javax.swing.JFrame;
-import group.management.oodp.Menu;
+import group.management.oodp.ManageGroup;
  
 public class Initial{
     static Login login;
-    Menu menu;
+    ManageGroup menu;
     //UserDTO user = new UserDTO();
    
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Initial{
    
     public void gotoMenu(UserDTO user){
         login.dispose();
-        this.menu = new Menu();
+        this.menu = new ManageGroup();
         menu.screen(user);
     }
  

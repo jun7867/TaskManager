@@ -14,12 +14,12 @@ import java.awt.*;
 
 public class MakeGroup extends JFrame{
 	boolean isIdUnique=false;
-	int i=1;
-	public void make() throws HeadlessException {
+	int i=0;
+	public void make(String name) throws HeadlessException {
 		JPanel panel = new JPanel();
 		Label l1 = new Label("그룹 번호");
 		Label l2 = new Label("그룹 명");
-		Label l3 = new Label("멤버 선택");
+		Label l3 = new Label("멤버 선택  - 한 번에 선택 후 > 버튼을 눌러주세요!");
 		Label l4 = new Label("52643");
 		add(l1);
 		add(l2);
@@ -27,7 +27,7 @@ public class MakeGroup extends JFrame{
 		add(l4);
 		l1.setBounds(40, 10, 60, 30);
 		l2.setBounds(40, 50, 40, 30);
-		l3.setBounds(40, 80, 60, 30);
+		l3.setBounds(40, 80, 260, 30);
 		l4.setBounds(120, 10, 80, 30);
 		TextField t1 = new TextField();
 		add(t1);
@@ -43,25 +43,54 @@ public class MakeGroup extends JFrame{
 		}
 		String str;
 		String[] array;
-		Label l[] = new Label[100];
-		JCheckBox c[] = new JCheckBox[100];
+		String userNames[] = new String[100];
 		try {
 			while((str=logbuff.readLine())!=null){
 				
-				array=str.split("/");
-				l[i] = new Label("hello");
-				l[i].setText(array[0]);
-				c[i] = new JCheckBox();
-				add(l[i]);
-				add(c[i]);
-				l[i].setBounds(100, 80+30*i, 140, 30);
-				c[i].setBounds (60, 80+30*i, 20, 40);
-				i++;
+				array=str.split("/");	
+				if(!array[0].equals(name)) {
+					userNames[i]=array[0];
+					i++;
+				}
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			
+		JList userJList;
+		JList copyJList = new JList();
+		JButton copyJButton;
+		userJList = new JList( userNames );
+		userJList.setVisibleRowCount( 10 );
+		userJList.setSelectionMode( ListSelectionModel.MULTIPLE_INTERVAL_SELECTION );
+		JScrollPane userScroll = new JScrollPane(userJList);
+		add(userScroll);
+		userScroll.setBounds(100, 110, 120, 200);
+		copyJButton = new JButton( ">");
+		add(copyJButton);
+		copyJButton.setBounds(240, 200, 20, 20);
+
+	  copyJList.setVisibleRowCount( 10 );
+	  copyJList.setFixedCellWidth( 120 );
+	  copyJList.setFixedCellHeight( 15 );
+	  copyJList.setSelectionMode
+	   (
+	    ListSelectionModel.SINGLE_INTERVAL_SELECTION );
+		copyJButton.addActionListener(
+				new ActionListener(){
+				   public void actionPerformed(ActionEvent e) {
+				    {
+				      copyJList.setListData( userJList.getSelectedValues() ); //copyJList에 선택된 값을 넘김.
+				     }   
+				   	}
+				   }	
+			);
+		JScrollPane copyScroll = new JScrollPane(copyJList); 
+		//copyScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		add(copyScroll);
+		copyScroll.setBounds(270, 160, 140, 100);
+		
 		JButton j1 = new JButton("등록");
 		JButton j2 = new JButton("취소");
 		add(j1);
@@ -81,10 +110,9 @@ public class MakeGroup extends JFrame{
 					BufferedWriter bos = new BufferedWriter(new FileWriter("group.txt", true));
 					    bos.write(l4.getText()+"/");
 					    bos.write(t1.getText()+"/");
-					    for(int j=1; j<i; j++) {
-					    	if(c[j].isSelected()) {
-					    		bos.write(l[j].getText()+"/");
-					    	}
+					    bos.write(name+"/"); //host는 만든사람
+					    for(int j=0; j<copyJList.getModel().getSize(); j++) {
+					    	bos.write(copyJList.getModel().getElementAt(j)+"/");
 					    }
 					    bos.write("!end!\n");
 						bos.close();
