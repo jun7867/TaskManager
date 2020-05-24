@@ -24,6 +24,7 @@ import group.management.oodp.Menu;
 
 public class ManageGroup extends JFrame{
 	UserDTO user = new UserDTO();
+	GroupDTO group = new GroupDTO();
 	
 	public void screen(UserDTO user) {
 		JPanel panel = new JPanel();
@@ -46,11 +47,11 @@ public class ManageGroup extends JFrame{
 			int height=50;
 			while((g_str=groupbuff.readLine())!=null){
 				g_array=g_str.split("/");
-				int j=2;
+				int j=3;
 				while(!g_array[j].equals("!end!")) {
 					if(g_array[j].equals(user.getName())) {
 						btn[i]=new JButton("");
-						btn[i].setText(g_array[1]);
+						btn[i].setText(g_array[0]);
 						add(btn[i]);
 						btn[i].setBounds(width, height, 80, 30);
 						i++;
@@ -99,13 +100,13 @@ public class ManageGroup extends JFrame{
 			}
 		});
 		for(int j=0; j<i; j++) {
-			String groupName = btn[j].getText();//Group 정보로 전환할 예정 + user 정보도 넘기기 
+			GroupDAO groupdao = new GroupDAO();
+			group=groupdao.getGroupUsingName(btn[j].getText());
 			btn[j].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					//System.out.println("");
 					Menu menu = new Menu();
-					menu.screen(user, groupName);
+					menu.screen(user, group);
 				}
 			});
 		}

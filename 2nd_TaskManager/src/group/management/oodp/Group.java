@@ -1,11 +1,14 @@
 package group.management.oodp;
 
-public class GroupDTO {
+public abstract class Group {
 	private String name;
 	private int type;
 	private int num;
 	private String hostName;
 	private String[] memberName;
+	public Group() {
+		
+	}
 	public String getName() {
 		return name;
 	}
@@ -37,5 +40,4 @@ public class GroupDTO {
 	public void setType(int type) {
 		this.type = type;
 	}
-	
 }

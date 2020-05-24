@@ -33,7 +33,6 @@ public class UserDAO {
 		}catch (IOException E10) {
     		E10.printStackTrace();
     	}
-		
 		return null;
 	}
 	
