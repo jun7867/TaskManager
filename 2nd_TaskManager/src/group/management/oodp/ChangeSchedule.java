@@ -43,6 +43,7 @@ public class ChangeSchedule extends JFrame {
 	          System.out.println(e);
 	      }
 
+		
 		add(panel);
 		setSize(500,400);
 		setTitle("스케줄 ");
