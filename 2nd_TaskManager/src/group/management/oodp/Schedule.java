@@ -17,7 +17,7 @@ import java.util.*;
 import java.text.*;
 
 public class Schedule extends JFrame {
-	
+	 
 	public void make() throws HeadlessException {
 		JPanel panel = new JPanel();
 		Label l1 = new Label("일시");
