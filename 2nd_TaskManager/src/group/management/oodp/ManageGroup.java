@@ -100,11 +100,14 @@ public class ManageGroup extends JFrame{
 			}
 		});
 		for(int j=0; j<i; j++) {
-			GroupDAO groupdao = new GroupDAO();
-			group=groupdao.getGroupUsingName(btn[j].getText());
 			btn[j].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					JButton button = (JButton) e.getSource();
+				    String btnName = button.getActionCommand();
+					//System.out.println("->"+btnName);
+					GroupDAO groupdao = new GroupDAO();
+					group=groupdao.getGroupUsingName(btnName);
 					Menu menu = new Menu();
 					menu.screen(user, group);
 				}
