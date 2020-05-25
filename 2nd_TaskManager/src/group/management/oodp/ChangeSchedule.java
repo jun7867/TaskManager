@@ -20,7 +20,7 @@ public class ChangeSchedule extends JFrame {
 	
 	public void edit() throws HeadlessException {
 		JPanel panel = new JPanel();
-		Label l1 = new Label("스케줄 수정");
+		Label l1 = new Label("스케줄 관리");
 		add(l1);
 		l1.setBounds(40, 10, 80, 30);
 		
@@ -45,7 +45,7 @@ public class ChangeSchedule extends JFrame {
 
 		add(panel);
 		setSize(500,400);
-		setTitle("스케줄 수정");
+		setTitle("스케줄 ");
 		setVisible(true);
 	}
 	
