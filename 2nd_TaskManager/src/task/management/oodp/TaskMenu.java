@@ -62,7 +62,8 @@ public class TaskMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				ShowTask showTask=new ShowTask();
+				showTask.ShowTask(user,group);
 			}
 			
 		});

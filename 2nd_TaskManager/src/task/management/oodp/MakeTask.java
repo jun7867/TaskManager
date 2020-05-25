@@ -55,7 +55,7 @@ public class MakeTask extends JFrame{
 		t3.setBounds(180, 80, 70, 30);
 		
 		// 그룹에 등록된멤버들을 선택해서 작업 할당 
-		// **나중에 user.text 말고 group member.txt로 바꿔야 함. 
+		// **나중에 user.text 말고 group.txt로 바꿔야 함. **
 		BufferedReader logbuff = null;
 		try {
 			logbuff = new BufferedReader(new FileReader("user.txt"));
