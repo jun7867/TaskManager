@@ -24,15 +24,20 @@ public class Menu extends JFrame implements ActionListener{
 	
 	public void screen(String userName) {
 		JPanel panel = new JPanel();
+		//panel.setBounds();
 		Label l1 = new Label("환영합니다.	"+ userName +" 님!!");
 		add(l1);
 		l1.setBounds(0, 0, 200, 40);
 		JButton j1 = new JButton("그룹 생성"); add(j1);
 		JButton j2 = new JButton("그룹 관리"); add(j2);
 		JButton j3 = new JButton("새로 고침"); add(j3);
-		j1.setBounds(150, 330, 80, 30);
-		j2.setBounds(250, 330, 80, 30);
+		JButton j4 = new JButton("스케줄 생성"); add(j4);
+		JButton j5 = new JButton("스케줄 관리"); add(j5);
+		j1.setBounds(100, 330, 100, 30);
+		j2.setBounds(250, 330, 100, 30);
 		j3.setBounds(400, 0, 80, 30);
+		j4.setBounds(100, 380, 100, 30);
+		j5.setBounds(250, 380, 100, 30);
 		String g_str;
 		String[] g_array;
 		JButton btn[] = new JButton[100];
@@ -67,7 +72,7 @@ public class Menu extends JFrame implements ActionListener{
 		}
 		
 		add(panel);
-		setSize(500,400);
+		setSize(500,500);
 		setTitle("그룹 생성/관리/선택");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -95,9 +100,24 @@ public class Menu extends JFrame implements ActionListener{
 		        menu.screen(userName);
 			}
 		});
+		j4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Schedule s1 = new Schedule();
+				s1.make();
+			}
+		});
+		j5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangeSchedule c1 = new ChangeSchedule();
+				c1.edit();
+			}
+		});
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 	}
+
 
 }
