@@ -52,16 +52,18 @@ public class MakeSchedule extends JFrame {
 		// 날짜와 시간 스피너
 		Calendar calendar = Calendar.getInstance(); //갤린더 객체 얻기
 		Date value = calendar.getTime(); //현재 시간 얻기
-				
-		calendar.add(Calendar.YEAR, -50); // 50년 전의 날짜 얻기
-		Date start = calendar.getTime(); //50년 전의 날짜를 최소 날짜로 지정
-				
-		calendar.add(Calendar.YEAR, 100); // 50년 뒤의 날짜 얻기 +50하면 현재날짜가됨.
-		Date end = calendar.getTime(); //50년 뒤의 날짜를 최대 날짜로 지정
+		
+		//50년 전의 날짜를 최소 날짜로 지정
+		calendar.add(Calendar.YEAR, -50); 
+		Date start = calendar.getTime(); 
+		
+		//50년 뒤의 날짜를 최대 날짜로 지정
+		calendar.add(Calendar.YEAR, 100);
+		Date end = calendar.getTime(); 
 
 		SpinnerDateModel dateModel = new SpinnerDateModel(value, start, end, Calendar.YEAR);
 		JSpinner spinner1 = new JSpinner(dateModel);
-		spinner1.setEditor(new JSpinner.DateEditor(spinner1, "yyyy-MM-dd HH시mm분")); //날짜 편집기 지정
+		spinner1.setEditor(new JSpinner.DateEditor(spinner1, "yyyy-MM-dd HH시mm분"));
 		panel.add(spinner1);
 		
 		JButton j1 = new JButton("등록");
