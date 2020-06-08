@@ -10,13 +10,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Decorate.design.pattern.oodp.DecoName;
+import Decorate.design.pattern.oodp.JustName;
+import Decorate.design.pattern.oodp.PerfectTopping;
+import Decorate.design.pattern.oodp.SuperTopping;
 import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
 
 public class TaskMenu {
-
+	
+	
 	public void screen(UserDTO user, Group group) {
+
 		JFrame f = new JFrame();
 		f.setSize(400, 400);
 		f.setVisible(true);
