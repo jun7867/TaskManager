@@ -138,7 +138,7 @@ public class ShowTask extends JFrame {
 				// 선택한 줄 (row)번호 알아내기
 				int rowIndex = tableView.getSelectedRow();
 				System.out.println(rowIndex);
-				UpdateFile(rowIndex, group, tfName, tfMember, tfStartday, tfEndday);
+				updateFile(rowIndex, group, tfName, tfMember, tfStartday, tfEndday);
 				ShowTask showTask=new ShowTask();
 				showTask.ShowTask(user,group);
 
@@ -168,7 +168,7 @@ public class ShowTask extends JFrame {
 		});
 	}
 
-	private void UpdateFile(int rowIndex, GroupDTO group, JTextField tfName, JTextField tfMember, JTextField tfStartday,
+	private void updateFile(int rowIndex, GroupDTO group, JTextField tfName, JTextField tfMember, JTextField tfStartday,
 			JTextField tfEndday) {
 		String task = tfName.getText();
 		String members = tfMember.getText();
