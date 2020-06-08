@@ -37,24 +37,20 @@ public class ManageGroup extends JFrame implements ActionListener{
 	GroupDTO group = new GroupDTO();
 
 	private JButton j1,j2,j3,b1,b2,b3,b4;
-	private JPanel panel;
 	private JLabel l1,l2;
 	Season season=new Season();
-	Spring spring=new Spring();
-	Summer summer=new Summer();
-	Autumn autumn=new Autumn();
-	Winter winter=new Winter();
+	Spring s1=new Spring();
+	Summer s2=new Summer();
+	Autumn s3=new Autumn();
+	Winter s4=new Winter();
 	public Color color;
 
 	public void screen(UserDTO user) {
-//		panel = new JPanel();
 		setLayout(null);
 		l1 = new JLabel("환영합니다.	"+ user.getName() +" 님!!@");
 		l2 = new JLabel("배경을 바꿉니다. 맘에 드는 계절을 선택해주세요. ");
 		add(l1);
 		add(l2);
-//		l1.setOpaque(true);
-//		l2.setOpaque(true);
 		l1.setBounds(20, 0, 200, 40);
 		l2.setBounds(20,120,400,35);
 		j1 = new JButton("그룹 생성"); add(j1);
@@ -174,16 +170,16 @@ public class ManageGroup extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==b1) {
-			color=season.setBackground(spring);
+			color=season.setBackground(s1);
 		}
 		else if(e.getSource()==b2) {
-			color=season.setBackground(summer);
+			color=season.setBackground(s2);
 		}
 		else if(e.getSource()==b3) {
-			color=season.setBackground(autumn);
+			color=season.setBackground(s3);
 		}
 		else if(e.getSource()==b4) {
-			color=season.setBackground(winter);
+			color=season.setBackground(s4);
 		}
 		getContentPane().setBackground(color);
 	}
