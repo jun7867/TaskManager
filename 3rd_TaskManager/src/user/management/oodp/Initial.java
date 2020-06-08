@@ -6,7 +6,6 @@ import group.management.oodp.ManageGroup;
 public class Initial{
     static Login login;
     ManageGroup menu;
-    //UserDTO user = new UserDTO();
    
     public static void main(String[] args) {
         Initial main = new Initial();
