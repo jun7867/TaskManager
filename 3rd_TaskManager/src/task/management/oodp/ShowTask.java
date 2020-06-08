@@ -25,6 +25,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
 
@@ -37,7 +38,7 @@ public class ShowTask extends JFrame {
 	DefaultTableModel model;
 	Vector<String> rows;
 
-	public void ShowTask(UserDTO user, GroupDTO group) {
+	public void ShowTask(UserDTO user, Group group) {
 
 		BufferedReader logbuff = null;
 		ArrayList<Task> taskList = new ArrayList<>();
@@ -168,7 +169,7 @@ public class ShowTask extends JFrame {
 		});
 	}
 
-	private void UpdateFile(int rowIndex, GroupDTO group, JTextField tfName, JTextField tfMember, JTextField tfStartday,
+	private void UpdateFile(int rowIndex, Group group, JTextField tfName, JTextField tfMember, JTextField tfStartday,
 			JTextField tfEndday) {
 		String task = tfName.getText();
 		String members = tfMember.getText();
@@ -212,7 +213,7 @@ public class ShowTask extends JFrame {
 
 	}
 	
-	private void deleteFile(int rowIndex, GroupDTO group, JTextField tfName, JTextField tfMember, JTextField tfStartday,
+	private void deleteFile(int rowIndex, Group group, JTextField tfName, JTextField tfMember, JTextField tfStartday,
 			JTextField tfEndday) {
 		String outputData = "";
 		try {

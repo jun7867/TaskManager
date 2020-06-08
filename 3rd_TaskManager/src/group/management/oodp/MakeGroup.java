@@ -134,7 +134,7 @@ public class MakeGroup extends JFrame{
 				    for(int j=0; j<copyJList.getModel().getSize(); j++) {
 				    	saveMem[j] = (String) copyJList.getModel().getElementAt(j);
 				    }
-					Group newG = factory.create(t1.getText(), copyJList.getModel().getSize()+1,name,saveMem);
+					Group newG = factory.create(t1.getText(), copyJList.getModel().getSize()+1,name, saveMem);
 					dispose(); 
 				}
 			}

@@ -10,7 +10,6 @@ import group.management.oodp.Group;
 import group.management.oodp.SchoolGroup;
 
 public class SchoolGroupFactory  extends GroupFactory{
-
 	@Override
 	protected Group createGroup(String name, int num, String hostName, String[] memberName) {
 		// TODO Auto-generated method stub

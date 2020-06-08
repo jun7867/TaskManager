@@ -4,7 +4,6 @@ import group.management.oodp.CompanyGroup;
 import group.management.oodp.Group;
 
 public class CompanyGroupFactory extends GroupFactory{
-
 	@Override
 	protected Group createGroup(String name, int num, String hostName, String[] memberName) {
 		// TODO Auto-generated method stub

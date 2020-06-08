@@ -13,6 +13,7 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.swing.event.*;
 
+import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
 
@@ -22,7 +23,7 @@ import java.text.*;
 
 public class MakeSchedule extends JFrame {
 	
-	public void MakeSchedule(UserDTO user,GroupDTO group) {
+	public void MakeSchedule(UserDTO user,Group group) {
 		JPanel panel = new JPanel();
 		Label l1 = new Label("일시");
 		Label l2 = new Label("스케줄 이름");

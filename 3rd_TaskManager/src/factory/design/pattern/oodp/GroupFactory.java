@@ -7,12 +7,25 @@ import javax.swing.JOptionPane;
 
 import group.management.oodp.Group;
 //https://johngrib.github.io/wiki/factory-method-pattern/
+import group.management.oodp.GroupDAO;
+import group.management.oodp.GroupDTO;
 
 public abstract class GroupFactory {
 	public final Group create(String name, int num, String hostName, String[] memberName) {
 		Group group = createGroup(name, num, hostName, memberName);
 		System.out.println(group.getName());
 		registerGroup(group);
+		return group;
+	}
+	public final Group make(String name) {
+		GroupDAO groupdao = new GroupDAO();
+		GroupDTO groupdto = new GroupDTO();
+		groupdto=groupdao.getGroupUsingName(name);
+		String saveMem[] = new String[groupdto.getNum()];
+	    for(int j=0; j<groupdto.getNum(); j++) {
+	    	saveMem[j] = groupdto.getMemberName(j);
+	    }
+		Group group = createGroup(groupdto.getName(), groupdto.getNum(), groupdto.getHostName(), saveMem);
 		return group;
 	}
 	protected abstract Group createGroup(String name, int num, String hostName, String[] memberName);

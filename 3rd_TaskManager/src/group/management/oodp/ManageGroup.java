@@ -18,6 +18,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import factory.design.pattern.oodp.CompanyGroupFactory;
+import factory.design.pattern.oodp.GroupFactory;
+import factory.design.pattern.oodp.OtherGroupFactory;
+import factory.design.pattern.oodp.SchoolGroupFactory;
 import user.management.oodp.SignUp;
 import user.management.oodp.UserDTO;
 import group.management.oodp.Menu;
@@ -25,7 +29,6 @@ import group.management.oodp.Menu;
 public class ManageGroup extends JFrame{
 	UserDTO user = new UserDTO();
 	GroupDTO group = new GroupDTO();
-	
 	public void screen(UserDTO user) {
 		JPanel panel = new JPanel();
 		Label l1 = new Label("환영합니다.	"+ user.getName() +" 님!!");
@@ -108,8 +111,18 @@ public class ManageGroup extends JFrame{
 					//System.out.println("->"+btnName);
 					GroupDAO groupdao = new GroupDAO();
 					group=groupdao.getGroupUsingName(btnName);
+					
+					int type = group.getType();
+					GroupFactory factory;
+					if(type==0)
+						factory = new SchoolGroupFactory();
+					else if (type==1)
+						factory = new CompanyGroupFactory();
+					else
+						factory = new OtherGroupFactory();
+					Group newG = factory.make(btnName);
 					Menu menu = new Menu();
-					menu.screen(user, group);
+					menu.screen(user, newG);
 				}
 			});
 		}
