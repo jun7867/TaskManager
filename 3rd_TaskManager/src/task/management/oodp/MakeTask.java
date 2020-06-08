@@ -19,13 +19,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
 
 public class MakeTask extends JFrame{
 	boolean isIdUnique=false;
 	int i=0;
-	public void MakeTask(UserDTO user,GroupDTO group) {
+	public void MakeTask(UserDTO user,Group group) {
 		// TODO Auto-generated method stub
 		JPanel panel = new JPanel();
 		

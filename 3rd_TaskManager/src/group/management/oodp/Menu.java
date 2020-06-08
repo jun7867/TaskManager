@@ -10,7 +10,7 @@ import user.management.oodp.UserDTO;
 
 public class Menu {
 	
-	public void screen(UserDTO user, GroupDTO group) {
+	public void screen(UserDTO user, Group group) {
 		JFrame f = new JFrame();
 		f.setSize(400, 400);
 		f.setVisible(true);

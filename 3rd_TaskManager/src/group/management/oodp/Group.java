@@ -6,13 +6,6 @@ public abstract class Group {
 	private int num;
 	private String hostName;
 	private String[] memberName;
-	public Group() {
-		
-	}
-	abstract void ManageMember();
-	abstract void ManageTask();
-	abstract void ManageSchedule();
-	abstract void ManageMeeting();
 	public String getName() {
 		return name;
 	}
@@ -44,4 +37,8 @@ public abstract class Group {
 	public void setType(int type) {
 		this.type = type;
 	}
+	abstract void ManageMember();
+	abstract void ManageTask();
+	abstract void ManageSchedule();
+	abstract void ManageMeeting();
 }

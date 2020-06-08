@@ -15,6 +15,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
 
+import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import task.management.oodp.Task;
 import user.management.oodp.UserDTO;
@@ -33,7 +34,7 @@ public class ShowSchedule extends JFrame {
 	DefaultTableModel model;
 	Vector<String> rows;
 
-	public void ShowSchedule(UserDTO user,GroupDTO group) {
+	public void ShowSchedule(UserDTO user,Group group) {
 		JPanel panel = new JPanel();
 		BufferedReader logbuff = null;
 		ArrayList<Schedule> schedList = new ArrayList<>();

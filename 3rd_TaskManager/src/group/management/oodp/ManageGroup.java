@@ -19,6 +19,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import factory.design.pattern.oodp.CompanyGroupFactory;
+import factory.design.pattern.oodp.GroupFactory;
+import factory.design.pattern.oodp.OtherGroupFactory;
+import factory.design.pattern.oodp.SchoolGroupFactory;
 import user.management.oodp.SignUp;
 import user.management.oodp.UserDTO;
 import group.management.oodp.Menu;
@@ -31,6 +35,7 @@ import state.design.pattern.oodp.Winter;
 public class ManageGroup extends JFrame implements ActionListener{
 	UserDTO user = new UserDTO();
 	GroupDTO group = new GroupDTO();
+
 	private JButton j1,j2,j3,b1,b2,b3,b4;
 	private JPanel panel;
 	private JLabel l1,l2;
@@ -40,7 +45,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 	Autumn autumn=new Autumn();
 	Winter winter=new Winter();
 	public Color color;
-	
+
 	public void screen(UserDTO user) {
 //		panel = new JPanel();
 		setLayout(null);
@@ -150,8 +155,18 @@ public class ManageGroup extends JFrame implements ActionListener{
 					//System.out.println("->"+btnName);
 					GroupDAO groupdao = new GroupDAO();
 					group=groupdao.getGroupUsingName(btnName);
+					
+					int type = group.getType();
+					GroupFactory factory;
+					if(type==0)
+						factory = new SchoolGroupFactory();
+					else if (type==1)
+						factory = new CompanyGroupFactory();
+					else
+						factory = new OtherGroupFactory();
+					Group newG = factory.make(btnName);
 					Menu menu = new Menu();
-					menu.screen(user, group);
+					menu.screen(user, newG);
 				}
 			});
 		}
