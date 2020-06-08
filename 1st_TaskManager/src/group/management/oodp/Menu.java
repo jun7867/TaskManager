@@ -100,20 +100,6 @@ public class Menu extends JFrame implements ActionListener{
 		        menu.screen(userName);
 			}
 		});
-		j4.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Schedule s1 = new Schedule();
-				s1.make();
-			}
-		});
-		j5.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangeSchedule c1 = new ChangeSchedule();
-				c1.edit();
-			}
-		});
 	}
 	
 	public void actionPerformed(ActionEvent e) {

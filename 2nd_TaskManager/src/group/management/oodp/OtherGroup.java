@@ -9,5 +9,25 @@ public class OtherGroup extends Group{
 	public OtherGroup() {
 		System.out.println("Company Group이 생성되었습니다.");
 	}
+	@Override
+	void ManageMember() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void ManageTask() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void ManageSchedule() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void ManageMeeting() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

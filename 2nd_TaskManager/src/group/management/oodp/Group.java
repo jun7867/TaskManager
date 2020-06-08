@@ -9,6 +9,10 @@ public abstract class Group {
 	public Group() {
 		
 	}
+	abstract void ManageMember();
+	abstract void ManageTask();
+	abstract void ManageSchedule();
+	abstract void ManageMeeting();
 	public String getName() {
 		return name;
 	}
