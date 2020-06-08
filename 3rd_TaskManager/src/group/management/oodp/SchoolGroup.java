@@ -29,5 +29,10 @@ public class SchoolGroup extends Group{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	String getEx() {
+		// TODO Auto-generated method stub
+		return "팀프로젝트, 과제 관리";
+	}
 
 }

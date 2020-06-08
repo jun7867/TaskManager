@@ -6,7 +6,9 @@ public class Autumn implements Background{
 
 	@Override
 	public Color changeBackground() {
-		return Color.CYAN;
+		//return Color.BLUE;
+		Color color = new Color(0xcfc1b2);
+		return color;
 	}
 
 

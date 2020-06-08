@@ -29,5 +29,10 @@ public class OtherGroup extends Group{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	String getEx() {
+		// TODO Auto-generated method stub
+		return "기타그룹";
+	}
 
 }

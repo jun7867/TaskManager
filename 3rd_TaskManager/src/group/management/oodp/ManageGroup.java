@@ -47,7 +47,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 
 	public void screen(UserDTO user) {
 		setLayout(null);
-		l1 = new JLabel("환영합니다.	"+ user.getName() +" 님!!@");
+		l1 = new JLabel("환영합니다.	"+ user.getName() +" 님!!");
 		l2 = new JLabel("배경을 바꿉니다. 맘에 드는 계절을 선택해주세요. ");
 		add(l1);
 		add(l2);
@@ -128,7 +128,9 @@ public class ManageGroup extends JFrame implements ActionListener{
 		j2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "아직 구현되지 않은 기능입니다ㅠㅠ");
+				ShowGroupInfo groupinfo = new ShowGroupInfo();
+				groupinfo.screen(user,color);
+				//JOptionPane.showMessageDialog(null, "아직 구현되지 않은 기능입니다ㅠㅠ");
 			}
 		});
 		j3.addActionListener(new ActionListener() {
@@ -162,12 +164,11 @@ public class ManageGroup extends JFrame implements ActionListener{
 						factory = new OtherGroupFactory();
 					Group newG = factory.make(btnName);
 					Menu menu = new Menu();
-					menu.screen(user, newG);
+					menu.screen(user, newG, color);
 				}
 			});
 		}
-	}
-	
+	}	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==b1) {
 			color=season.setBackground(s1);

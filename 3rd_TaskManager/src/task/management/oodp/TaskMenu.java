@@ -1,6 +1,7 @@
 package task.management.oodp;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,11 +22,12 @@ import user.management.oodp.UserDTO;
 public class TaskMenu {
 	
 	
-	public void screen(UserDTO user, Group group) {
+	public void screen(UserDTO user, Group group, Color color) {
 
 		JFrame f = new JFrame();
 		f.setSize(400, 400);
 		f.setVisible(true);
+		f.getContentPane().setBackground(color);
 		f.setTitle("Task Menu Page");
 		
 		JLabel welcome = new JLabel(user.getName()+"님, 현재 "+ group.getName() +" 업무 관리에 접속해있습니다.");

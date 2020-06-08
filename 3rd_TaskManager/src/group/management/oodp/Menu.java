@@ -15,7 +15,7 @@ import user.management.oodp.UserDTO;
 public class Menu {
 	
 	
-	public void screen(UserDTO user, Group group) {
+	public void screen(UserDTO user, Group group, Color color) {
 		//그냥 이름 
 		DecoName justName=new JustName();
 		justName.setName(user.getName());
@@ -24,6 +24,7 @@ public class Menu {
 		//Decorate Pattern
 		DecoName perfectSuperName = new PerfectTopping(new SuperTopping(justName));
 		JFrame f = new JFrame();
+		f.getContentPane().setBackground(color);
 		f.setSize(400, 400);
 		f.setVisible(true);
 		f.setTitle(group.getName()+" Home");
@@ -56,7 +57,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TaskMenu taskMenu=new TaskMenu();
-				taskMenu.screen(user, group);
+				taskMenu.screen(user, group, color);
 				
 			}
 			
@@ -67,7 +68,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ScheduleMenu sMenu=new ScheduleMenu();
-				sMenu.screen(user, group);
+				sMenu.screen(user, group, color);
 				
 			}
 			

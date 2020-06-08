@@ -29,4 +29,9 @@ public class CompanyGroup extends Group{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	String getEx() {
+		// TODO Auto-generated method stub
+		return "사업자용";
+	}
 }

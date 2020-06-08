@@ -37,6 +37,7 @@ public abstract class Group {
 	public void setType(int type) {
 		this.type = type;
 	}
+	abstract String getEx();
 	abstract void ManageMember();
 	abstract void ManageTask();
 	abstract void ManageSchedule();

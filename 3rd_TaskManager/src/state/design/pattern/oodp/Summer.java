@@ -6,6 +6,8 @@ public class Summer implements Background{
 
 	@Override
 	public Color changeBackground() {		
-		return Color.BLUE;
+		//return Color.BLUE;
+		Color color = new Color(0xbbede1);
+		return color;
 	}
 }
