@@ -9,4 +9,24 @@ public class CompanyGroup extends Group{
 	public CompanyGroup() {
 		System.out.println("Company Group이 생성되었습니다.");
 	}
+	@Override
+	void ManageMember() {
+		// TODO Auto-generated method stub
+		System.out.println("ManageMember");
+	}
+	@Override
+	void ManageTask() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void ManageSchedule() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void ManageMeeting() {
+		// TODO Auto-generated method stub
+		
+	}
 }
