@@ -61,8 +61,8 @@ public class ManageGroup extends JFrame implements ActionListener{
 		b3 = new JButton("가을"); add(b3);
 		b4 = new JButton("겨울"); add(b4);
 	
-		j1.setBounds(150, 330, 80, 30);
-		j2.setBounds(250, 330, 80, 30);
+		j1.setBounds(130, 330, 100, 30);
+		j2.setBounds(270, 330, 100, 30);
 		j3.setBounds(400, 0, 80, 30);
 		b1.setBounds(0,160,80,30);
 		b2.setBounds(0,200,80,30);
@@ -130,7 +130,6 @@ public class ManageGroup extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				ShowGroupInfo groupinfo = new ShowGroupInfo();
 				groupinfo.screen(user,color);
-				//JOptionPane.showMessageDialog(null, "아직 구현되지 않은 기능입니다ㅠㅠ");
 			}
 		});
 		j3.addActionListener(new ActionListener() {
