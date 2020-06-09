@@ -25,6 +25,9 @@ import java.awt.*;
 import java.util.*;
 import java.text.*;
 
+import observer.design.pattern.oodp.*;
+import observer.design.pattern.oodp.Observer;
+
 public class ShowSchedule extends JFrame {
 	
 	private int i=0;
@@ -117,6 +120,11 @@ public class ShowSchedule extends JFrame {
 		setSize(900, 500);
 		setTitle("스케줄 확인 페이지");
 		setVisible(true);
+		
+		//Observer Pattern
+		Subscriber page = new Subscriber();
+		Observer ob1 = new ScheduleObserver();
+		page.subscribe(ob1);
 
 		btnMod.addActionListener(new ActionListener() {
 			@Override
@@ -130,6 +138,10 @@ public class ShowSchedule extends JFrame {
 				// 선택하고 누를 경우
 				else {
 					dispose();
+					
+					//Observer Pattern
+					page.renew();
+					
 					ShowSchedule showsched =new ShowSchedule();
 					showsched.ShowSchedule(user,group);
 				}
