@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import Decorate.design.pattern.oodp.DecoName;
-import Decorate.design.pattern.oodp.JustName;
-import Decorate.design.pattern.oodp.PerfectTopping;
-import Decorate.design.pattern.oodp.SuperTopping;
+import decorate.design.pattern.oodp.DecoName;
+import decorate.design.pattern.oodp.JustName;
+import decorate.design.pattern.oodp.PerfectTopping;
+import decorate.design.pattern.oodp.SuperTopping;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;
 import user.management.oodp.UserDTO;
