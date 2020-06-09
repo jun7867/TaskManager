@@ -1,4 +1,4 @@
-package Decorate.design.pattern.oodp;
+package decorate.design.pattern.oodp;
 
 public class JustName implements DecoName{
 	private String name;
