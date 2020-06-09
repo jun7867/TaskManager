@@ -1,4 +1,4 @@
-package Decorate.design.pattern.oodp;
+package decorate.design.pattern.oodp;
 
 public abstract class Topping implements DecoName{
 	protected DecoName decoName;
