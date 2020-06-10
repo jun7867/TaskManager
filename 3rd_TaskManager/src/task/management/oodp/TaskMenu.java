@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 
 import Decorate.design.pattern.oodp.DecoName;
 import Decorate.design.pattern.oodp.JustName;
-import Decorate.design.pattern.oodp.PerfectTopping;
-import Decorate.design.pattern.oodp.SuperTopping;
+import Decorate.design.pattern.oodp.IsLeaderTopping;
+import Decorate.design.pattern.oodp.InChargeTopping;
 import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
@@ -23,14 +23,20 @@ public class TaskMenu {
 	
 	
 	public void screen(UserDTO user, Group group, Color color) {
-
+		//그냥 이름 
+		DecoName justName=new JustName();
+		justName.setName(user.getName());
+				
+		//Decorate Pattern
+		DecoName IsLeaderInChargeName = new IsLeaderTopping(new InChargeTopping(justName));
+						
 		JFrame f = new JFrame();
 		f.setSize(400, 400);
 		f.setVisible(true);
 		f.getContentPane().setBackground(color);
 		f.setTitle("Task Menu Page");
 		
-		JLabel welcome = new JLabel(user.getName()+"님, 현재 "+ group.getName() +" 업무 관리에 접속해있습니다.");
+		JLabel welcome = new JLabel(IsLeaderInChargeName.getName()+"님, 현재 "+ group.getName() +" 업무 관리에 접속해있습니다.");
 		f.add(welcome, BorderLayout.CENTER);
 		
 		JPanel buttonPanel = new JPanel();

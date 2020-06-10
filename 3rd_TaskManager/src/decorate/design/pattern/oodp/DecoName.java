@@ -5,4 +5,3 @@ public interface DecoName {
 
 	public void setName(String name);
 }
-	

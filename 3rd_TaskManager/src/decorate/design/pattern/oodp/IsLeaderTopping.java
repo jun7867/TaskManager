@@ -1,8 +1,8 @@
 package Decorate.design.pattern.oodp;
 
-public class PerfectTopping extends Topping{
+public class IsLeaderTopping extends Topping{
 	private String name;
-	public PerfectTopping(DecoName decoName) {
+	public IsLeaderTopping(DecoName decoName) {
 		super(decoName);
 	}
 	

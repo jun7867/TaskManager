@@ -15,6 +15,7 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+<<<<<<< HEAD
 import Decorate.design.pattern.oodp.DecoName;
 import Decorate.design.pattern.oodp.JustName;
 import Decorate.design.pattern.oodp.PerfectTopping;
@@ -23,6 +24,8 @@ import factory.design.pattern.oodp.CompanyGroupFactory;
 import factory.design.pattern.oodp.GroupFactory;
 import factory.design.pattern.oodp.OtherGroupFactory;
 import factory.design.pattern.oodp.SchoolGroupFactory;
+=======
+>>>>>>> df970b903afdb4d0a98a5df29a2e2b34e3ebef9d
 import task.management.oodp.Task;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;
