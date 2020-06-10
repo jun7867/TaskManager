@@ -1,4 +1,3 @@
-  
 package schedule.management.oodp;
 
 import java.awt.BorderLayout;
@@ -12,6 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import decorate.design.pattern.oodp.DecoName;
+import decorate.design.pattern.oodp.JustName;
+import decorate.design.pattern.oodp.IsLeaderTopping;
+import decorate.design.pattern.oodp.InChargeTopping;
 import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
@@ -19,12 +22,20 @@ import user.management.oodp.UserDTO;
 public class ScheduleMenu {
 
 	public void screen(UserDTO user, Group group, Color color) {
+		//그냥 이름 
+		DecoName justName=new JustName();
+		justName.setName(user.getName());
+				
+		//Decorate Pattern
+		DecoName IsLeaderInChargeName = new IsLeaderTopping(new InChargeTopping(justName));
+		
 		JFrame f = new JFrame();
 		f.setSize(400, 400);
 		f.setVisible(true);
+		f.getContentPane().setBackground(color);
 		f.setTitle("Schedule Menu Page");
 		
-		JLabel welcome = new JLabel(user.getName()+"님, 현재 "+ group.getName() +" 스케줄 관리에 접속해있습니다.");
+		JLabel welcome = new JLabel(IsLeaderInChargeName.getName()+"님, 현재 "+ group.getName() +" 스케줄 관리에 접속해있습니다.");
 		f.add(welcome, BorderLayout.CENTER);
 		
 		JPanel buttonPanel = new JPanel();
@@ -61,5 +72,5 @@ public class ScheduleMenu {
 		});
 		
 	}
-
+	
 }
