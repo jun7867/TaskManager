@@ -32,6 +32,6 @@ public class CompanyGroup extends Group{
 	@Override
 	String getEx() {
 		// TODO Auto-generated method stub
-		return "사업자용";
+		return "회사 업무, 스케쥴, 미팅 관리에 유용합니다.";
 	}
 }

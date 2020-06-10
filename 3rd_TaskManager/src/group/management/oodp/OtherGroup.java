@@ -32,7 +32,7 @@ public class OtherGroup extends Group{
 	@Override
 	String getEx() {
 		// TODO Auto-generated method stub
-		return "기타그룹";
+		return "기타용도";
 	}
 
 }

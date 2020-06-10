@@ -32,7 +32,7 @@ public class SchoolGroup extends Group{
 	@Override
 	String getEx() {
 		// TODO Auto-generated method stub
-		return "팀프로젝트, 과제 관리";
+		return "학생들의 팀프로젝트, 협업용으로 사용할 수 있습니다.";
 	}
 
 }

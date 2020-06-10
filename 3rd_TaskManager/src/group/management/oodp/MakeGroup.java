@@ -124,9 +124,9 @@ public class MakeGroup extends JFrame{
 					JOptionPane.showMessageDialog(null, "그룹 중복 확인을 해주세요.");
 				else {
 					GroupFactory factory;
-					if(group.getSelection().getActionCommand().equals("0"))
+					if(group.getSelection().getActionCommand().equals("1"))
 						factory = new SchoolGroupFactory();
-					else if (group.getSelection().getActionCommand().equals("1"))
+					else if (group.getSelection().getActionCommand().equals("0"))
 						factory = new CompanyGroupFactory();
 					else 
 						factory = new OtherGroupFactory();

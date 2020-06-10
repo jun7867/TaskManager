@@ -46,4 +46,5 @@ public abstract class GroupFactory {
 				JOptionPane.showMessageDialog(null, "그룹 생성에 실패했습니다.");
 		}
 	}
+	
 }
