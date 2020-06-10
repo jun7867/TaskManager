@@ -12,10 +12,6 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import decorate.design.pattern.oodp.DecoName;
-import decorate.design.pattern.oodp.JustName;
-import decorate.design.pattern.oodp.PerfectTopping;
-import decorate.design.pattern.oodp.SuperTopping;
 import task.management.oodp.Task;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;

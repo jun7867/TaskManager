@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import decorate.design.pattern.oodp.DecoName;
-import decorate.design.pattern.oodp.JustName;
-import decorate.design.pattern.oodp.PerfectTopping;
-import decorate.design.pattern.oodp.SuperTopping;
+import Decorate.design.pattern.oodp.DecoName;
+import Decorate.design.pattern.oodp.JustName;
+import Decorate.design.pattern.oodp.IsLeaderTopping;
+import Decorate.design.pattern.oodp.InChargeTopping;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;
 import user.management.oodp.UserDTO;
@@ -19,10 +19,10 @@ public class Menu {
 		//그냥 이름 
 		DecoName justName=new JustName();
 		justName.setName(user.getName());
-		System.out.println("이름 "+ justName);
 		
 		//Decorate Pattern
-		DecoName perfectSuperName = new PerfectTopping(new SuperTopping(justName));
+		DecoName IsLeaderInChargeName = new IsLeaderTopping(new InChargeTopping(justName));
+		
 		JFrame f = new JFrame();
 		f.getContentPane().setBackground(color);
 		f.setSize(400, 400);
@@ -32,7 +32,7 @@ public class Menu {
 		buttonPanel.setLayout(new FlowLayout());
 		
 		
-		JLabel welcome = new JLabel("  "+perfectSuperName.getName()+"님, 현재 "+ group.getName() +"에 접속해있습니다.");
+		JLabel welcome = new JLabel("  "+IsLeaderInChargeName.getName()+"님, 현재 "+ group.getName() +"에 접속해있습니다.");
 		f.add(welcome, BorderLayout.CENTER);
 		System.out.println("Host : "+group.getHostName()+"\nMember");
 		for(int i=0; i<group.getNum()-1; i++)

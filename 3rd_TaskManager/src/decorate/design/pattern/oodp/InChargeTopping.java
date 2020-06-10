@@ -1,8 +1,8 @@
-package decorate.design.pattern.oodp;
+package Decorate.design.pattern.oodp;
 
-public class SuperTopping extends Topping{
+public class InChargeTopping extends Topping{
 	private String name;
-	public SuperTopping(DecoName decoName) {
+	public InChargeTopping(DecoName decoName) {
 		super(decoName);
 	}
 	

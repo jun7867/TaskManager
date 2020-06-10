@@ -2,6 +2,7 @@
 package schedule.management.oodp;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +18,7 @@ import user.management.oodp.UserDTO;
 
 public class ScheduleMenu {
 
-	public void screen(UserDTO user, Group group) {
+	public void screen(UserDTO user, Group group, Color color) {
 		JFrame f = new JFrame();
 		f.setSize(400, 400);
 		f.setVisible(true);
