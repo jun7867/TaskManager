@@ -1,12 +1,9 @@
-package Decorate.design.pattern.oodp;
+package decorate.design.pattern.oodp;
 
 public class JustName implements DecoName{
 	private String name;
 	
-//	public JustName(String name) {
-//		// TODO Auto-generated constructor stub
-//	}
-
+// 기본 네임 
 	@Override
 	public String getName() {
 		return name;

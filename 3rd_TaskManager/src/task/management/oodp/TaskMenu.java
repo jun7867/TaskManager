@@ -11,10 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Decorate.design.pattern.oodp.DecoName;
-import Decorate.design.pattern.oodp.JustName;
-import Decorate.design.pattern.oodp.IsLeaderTopping;
-import Decorate.design.pattern.oodp.InChargeTopping;
+import decorate.design.pattern.oodp.DecoName;
+import decorate.design.pattern.oodp.JustName;
+import decorate.design.pattern.oodp.IsLeaderTopping;
+import decorate.design.pattern.oodp.InChargeTopping;
 import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;

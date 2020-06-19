@@ -6,7 +6,7 @@ public class Season {
 	private Background background;
 	
 	public Season() {
-		this.background=new Spring();
+		this.background=new Spring(); //default
 	}
 	
 	public Color setBackground(Background background) {
