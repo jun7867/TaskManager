@@ -43,7 +43,8 @@ public class Setting extends JFrame {
 		setTitle("환경 설정");
 		setVisible(true);
 		
-		
+		originator.setFont(12); // 초기값 저장.
+		careTaker.add(originator.saveFontToMemento());
 		
 		j1.addActionListener(new ActionListener() {
 			@Override
@@ -73,7 +74,10 @@ public class Setting extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// 첫번째 저장한 State 불러오기 get(0)
 				// 두번째 저장한 State 불러오려면 get(1)
+				
+				//get(0)은 기본 사이즈(12)로 돌아가기.
 				originator.getFontFromMemento(careTaker.get(0));
+				System.out.println(originator.getFont());
 				f1 = new Font("돋움",Font.PLAIN,originator.getFont());
 				l1.setFont(f1);
 			}
