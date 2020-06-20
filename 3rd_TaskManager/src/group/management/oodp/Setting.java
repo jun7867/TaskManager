@@ -37,7 +37,7 @@ public class Setting extends JFrame {
 		add(j3);
 		j1.setBounds(80, 330, 80, 30);
 		j2.setBounds(200, 330, 80, 30);
-		j3.setBounds(320, 330, 60, 30);
+		j3.setBounds(320, 330, 80, 30);
 		add(panel);
 		setSize(500,400);
 		setTitle("환경 설정");
