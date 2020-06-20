@@ -36,7 +36,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 	UserDTO user = new UserDTO();
 	GroupDTO group = new GroupDTO();
 
-	private JButton j1,j2,j3,b1,b2,b3,b4;
+	private JButton j1,j2,j3,j4,b1,b2,b3,b4;
 	private JLabel l1,l2;
 	Season season=new Season();
 	Spring s1=new Spring();
@@ -56,6 +56,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 		j1 = new JButton("그룹 생성"); add(j1);
 		j2 = new JButton("그룹 관리"); add(j2);
 		j3 = new JButton("새로 고침"); add(j3);
+		j4 = new JButton("환경 설정"); add(j4);
 		b1 = new JButton("봄"); add(b1);
 		b2 = new JButton("여름"); add(b2);
 		b3 = new JButton("가을"); add(b3);
@@ -64,6 +65,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 		j1.setBounds(130, 330, 100, 30);
 		j2.setBounds(270, 330, 100, 30);
 		j3.setBounds(400, 0, 80, 30);
+		j4.setBounds(300,0,80,30);
 		b1.setBounds(0,160,80,30);
 		b2.setBounds(0,200,80,30);
 		b3.setBounds(0,240,80,30);
@@ -71,6 +73,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 		j1.addActionListener(this);
 		j2.addActionListener(this);
 		j3.addActionListener(this);
+		j4.addActionListener(this);
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
@@ -138,6 +141,14 @@ public class ManageGroup extends JFrame implements ActionListener{
 				dispose();
 				ManageGroup menu = new ManageGroup();
 		        menu.screen(user);
+			}
+		});
+		j4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Setting setting = new Setting();
+		        setting.screen();
+				
 			}
 		});
 		
