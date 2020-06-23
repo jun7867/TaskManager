@@ -3,6 +3,7 @@ package schedule.management.oodp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,17 +12,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import decorate.design.pattern.oodp.DecoName;
-import decorate.design.pattern.oodp.JustName;
-import decorate.design.pattern.oodp.IsLeaderTopping;
-import decorate.design.pattern.oodp.InChargeTopping;
+import Decorate.design.pattern.oodp.DecoName;
+import Decorate.design.pattern.oodp.JustName;
+import Decorate.design.pattern.oodp.IsLeaderTopping;
+import Decorate.design.pattern.oodp.InChargeTopping;
 import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
 
 public class ScheduleMenu {
 
-	public void screen(UserDTO user, Group group, Color color) {
+	public void screen(UserDTO user, Group group, Color color, Font f1) {
 		//그냥 이름 
 		DecoName justName=new JustName();
 		justName.setName(user.getName());
@@ -45,7 +46,9 @@ public class ScheduleMenu {
 		JButton j2 = new JButton("스케줄 확인/수정 ");
 		buttonPanel.add(j1);
 		buttonPanel.add(j2);
-		
+		welcome.setFont(f1);
+		j1.setFont(f1);
+		j2.setFont(f1);
 		f.add(buttonPanel, BorderLayout.SOUTH);
 		buttonPanel.setVisible(true);
 		
