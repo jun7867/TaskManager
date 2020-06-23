@@ -3,6 +3,7 @@ package group.management.oodp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Label;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -45,7 +46,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 	Winter s4=new Winter();
 	public Color color;
 
-	public void screen(UserDTO user) {
+	public void screen(UserDTO user, Font f1) {
 		setLayout(null);
 		l1 = new JLabel("환영합니다.	"+ user.getName() +" 님!!");
 		l2 = new JLabel("배경을 바꿉니다. 맘에 드는 계절을 선택해주세요. ");
@@ -113,12 +114,23 @@ public class ManageGroup extends JFrame implements ActionListener{
 		}
 		
 		//add(panel);
+		l1.setFont(f1);
+		l2.setFont(f1);
+		j1.setFont(f1);
+		j2.setFont(f1);
+		j3.setFont(f1);
+		j4.setFont(f1);
+		b1.setFont(f1);
+		b2.setFont(f1);
+		b3.setFont(f1);
+		b4.setFont(f1);
 		setSize(500,400);
 		setTitle("그룹 생성/관리/선택");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setResizable(false);
+
 		
 		
 		j1.addActionListener(new ActionListener() {
@@ -140,21 +152,22 @@ public class ManageGroup extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				ManageGroup menu = new ManageGroup();
-		        menu.screen(user);
+		        menu.screen(user, f1);
 			}
 		});
 		j4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Setting setting = new Setting();
-		        setting.screen();
-				
+		        setting.screen(user);
+				dispose();
 			}
 		});
 		
 		
 		
 		for(int j=0; j<i; j++) {
+			btn[j].setFont(f1);
 			btn[j].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -174,7 +187,7 @@ public class ManageGroup extends JFrame implements ActionListener{
 						factory = new OtherGroupFactory();
 					Group newG = factory.make(btnName);
 					Menu menu = new Menu();
-					menu.screen(user, newG, color);
+					menu.screen(user, newG, color, f1);
 				}
 			});
 		}
