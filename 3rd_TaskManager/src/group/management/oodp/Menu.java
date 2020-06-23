@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import decorate.design.pattern.oodp.DecoName;
-import decorate.design.pattern.oodp.JustName;
-import decorate.design.pattern.oodp.IsLeaderTopping;
-import decorate.design.pattern.oodp.InChargeTopping;
+import Decorate.design.pattern.oodp.DecoName;
+import Decorate.design.pattern.oodp.JustName;
+import Decorate.design.pattern.oodp.IsLeaderTopping;
+import Decorate.design.pattern.oodp.InChargeTopping;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;
 import user.management.oodp.UserDTO;
@@ -15,7 +15,7 @@ import user.management.oodp.UserDTO;
 public class Menu {
 	
 	
-	public void screen(UserDTO user, Group group, Color color) {
+	public void screen(UserDTO user, Group group, Color color, Font f1) {
 		//그냥 이름 
 		DecoName justName=new JustName();
 		justName.setName(user.getName());
@@ -49,7 +49,9 @@ public class Menu {
 
 		f.add(buttonPanel, BorderLayout.SOUTH);
 		buttonPanel.setVisible(true);
-	
+		welcome.setFont(f1);
+		j1.setFont(f1);
+		j2.setFont(f1);
 	
 		
 		j1.addActionListener(new ActionListener() {
@@ -57,7 +59,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TaskMenu taskMenu=new TaskMenu();
-				taskMenu.screen(user, group, color);
+				taskMenu.screen(user, group, color, f1);
 				
 			}
 			
@@ -68,7 +70,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ScheduleMenu sMenu=new ScheduleMenu();
-				sMenu.screen(user, group, color);
+				sMenu.screen(user, group, color, f1);
 				
 			}
 			
