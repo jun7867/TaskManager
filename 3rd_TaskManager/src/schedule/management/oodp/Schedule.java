@@ -1,8 +1,12 @@
 package schedule.management.oodp;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import visitor.design.pattern.oodp.Element;
+import visitor.design.pattern.oodp.Visitor;
+import visitor.design.pattern.oodp.*;
 
-public class Schedule {
+public class Schedule implements Element {
 	private String groupName;
 	private String sched;
 	private String date;
@@ -46,6 +50,12 @@ public class Schedule {
 
 	public void setUserList(ArrayList<String> userList) {
 		this.userList = userList;
+	}
+	
+	//Visitor Pattern
+	@Override
+	public int accept(Visitor visitor) throws ParseException {
+		return visitor.visit(this);
 	}
 	
 }
