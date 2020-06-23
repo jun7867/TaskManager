@@ -4,13 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import Decorate.design.pattern.oodp.DecoName;
-import Decorate.design.pattern.oodp.JustName;
-import Decorate.design.pattern.oodp.IsLeaderTopping;
-import Decorate.design.pattern.oodp.InChargeTopping;
+import decorate.design.pattern.oodp.DecoName;
+import decorate.design.pattern.oodp.JustName;
+import decorate.design.pattern.oodp.IsLeaderTopping;
+import decorate.design.pattern.oodp.InChargeTopping;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;
 import user.management.oodp.UserDTO;
+import visitor.design.pattern.oodp.*;
 
 public class Menu {
 	
@@ -46,6 +47,10 @@ public class Menu {
 		buttonPanel.add(j2);
 		//j2.setBounds(250, 330, 80, 30);
 		
+		//Visitor Pattern
+		int a = Client.calculate(group);
+		JLabel showMember = new JLabel("그룹 멤버 수: "+a);
+		f.add(showMember, BorderLayout.NORTH);
 
 		f.add(buttonPanel, BorderLayout.SOUTH);
 		buttonPanel.setVisible(true);
