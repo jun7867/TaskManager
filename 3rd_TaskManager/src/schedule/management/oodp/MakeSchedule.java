@@ -22,11 +22,11 @@ import java.util.*;
 import java.text.*;
 import observer.design.pattern.oodp.*;
 import observer.design.pattern.oodp.Observer;
-
+import visitor.design.pattern.oodp.*;
 
 public class MakeSchedule extends JFrame {
 	
-	public void MakeSchedule(UserDTO user,Group group) {
+	public void MakeSchedule(UserDTO user,Group group) throws ParseException {
 		JPanel panel = new JPanel();
 		Label l1 = new Label("일시");
 		Label l2 = new Label("스케줄 이름");
@@ -88,7 +88,6 @@ public class MakeSchedule extends JFrame {
 		Observer ob1 = new ScheduleObserver();
 		page.subscribe(ob1);
 		
-		
 		j1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -102,9 +101,17 @@ public class MakeSchedule extends JFrame {
 					    bos.write(t2.getText()+"/");
 					    bos.write("!end!\n");
 						bos.close();
-						JOptionPane.showMessageDialog(null, t1.getText()+" 스케줄이 생성되었습니다.");
+						
+						//Visitor Pattern
+						Schedule s = new Schedule(timeval,timeval,timeval);
+						int rem_day = Client.dayLeft(s);
+						System.out.println(rem_day+"일 남았습니다.");
+						
+						JOptionPane.showMessageDialog(null, t1.getText()+" 스케줄이 생성되었습니다.\n"+rem_day+"일 남았습니다.");
+						
 						//Observer Pattern
 						page.renew();
+						
 						dispose();
 				}catch(Exception ex) {
 						JOptionPane.showMessageDialog(null, "스케줄 생성에 실패했습니다.");
