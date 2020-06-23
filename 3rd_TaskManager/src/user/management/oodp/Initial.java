@@ -1,5 +1,7 @@
 package user.management.oodp;
 
+import java.awt.Font;
+
 import javax.swing.JFrame;
 import group.management.oodp.ManageGroup;
  
@@ -16,7 +18,8 @@ public class Initial{
     public void gotoMenu(UserDTO user){
         login.dispose();
         this.menu = new ManageGroup();
-        menu.screen(user);
+        Font f1 = new Font("돋움",Font.PLAIN,12);
+        menu.screen(user, f1);
     }
  
 }
