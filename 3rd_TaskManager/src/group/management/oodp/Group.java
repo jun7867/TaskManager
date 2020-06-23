@@ -1,6 +1,11 @@
 package group.management.oodp;
 
-public abstract class Group {
+import java.text.ParseException;
+import visitor.design.pattern.oodp.Element;
+import visitor.design.pattern.oodp.Visitor;
+import visitor.design.pattern.oodp.*;
+
+public abstract class Group implements Element {
 	private String name;
 	private int type;
 	private int num;
@@ -37,6 +42,13 @@ public abstract class Group {
 	public void setType(int type) {
 		this.type = type;
 	}
+	
+	//Visitor Pattern
+	@Override
+	public int accept(Visitor visitor) throws ParseException {
+		return visitor.visit(this);
+	}
+	
 	abstract String getEx();
 	abstract void ManageMember();
 	abstract void ManageTask();
