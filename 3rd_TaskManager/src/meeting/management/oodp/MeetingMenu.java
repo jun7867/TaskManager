@@ -3,6 +3,7 @@ package meeting.management.oodp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +18,7 @@ import user.management.oodp.UserDTO;
 
 public class MeetingMenu {
 
-	public void screen(UserDTO user, Group group, Color color) {
+	public void screen(UserDTO user, Group group, Color color, Font f1) {
 		JFrame f = new JFrame();
 		f.setSize(500, 500);
 		f.setVisible(true);
@@ -43,8 +44,8 @@ public class MeetingMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MakeMeeting makeSched=new MakeMeeting();
-				makeSched.MakeSchedule(user, group);
+				MakeMeeting makeMeet=new MakeMeeting();
+				makeMeet.MakeMeeting(user, group);
 			}
 			
 		});
