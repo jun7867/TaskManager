@@ -29,6 +29,8 @@ import group.management.oodp.Group;
 import group.management.oodp.GroupDTO;
 import user.management.oodp.UserDTO;
 
+import observer.design.pattern.oodp.*;
+
 public class ShowMeeting extends JFrame {
 	private int i = 0;
 	private JFrame frame;
@@ -133,6 +135,11 @@ public class ShowMeeting extends JFrame {
 		setSize(900, 500);
 		setTitle("업무 확인 페이지");
 		setVisible(true);
+		
+		//Observer Pattern
+		Subscriber page = new Subscriber();
+		Observer ob1 = new MeetingObserver();
+		page.subscribe(ob1);
 
 		btnMod.addActionListener(new ActionListener() {
 			@Override
@@ -141,9 +148,19 @@ public class ShowMeeting extends JFrame {
 				int rowIndex = tableView.getSelectedRow();
 				System.out.println(rowIndex);
 				UpdateFile(rowIndex, group, tfName, tfMember, tfStartday, tfEndday);
-				ShowMeeting showMeet=new ShowMeeting();
-				showMeet.ShowMeeting(user,group);
-
+				// 선택 안하고 누를 경우
+				if (rowIndex == -1)
+					JOptionPane.showMessageDialog(null, "아무것도 선택이 되지 않았습니다.");
+				// 선택하고 누를 경우
+				else {
+					dispose();
+					
+					//Observer Pattern
+					page.renew();
+				
+					ShowMeeting showMeet=new ShowMeeting();
+					showMeet.ShowMeeting(user,group);
+				}
 			}
 		});
 
