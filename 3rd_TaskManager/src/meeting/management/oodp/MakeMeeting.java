@@ -20,9 +20,11 @@ import user.management.oodp.UserDTO;
 import java.awt.*;
 import java.util.*;
 import java.text.*;
+import observer.design.pattern.oodp.*;
+import observer.design.pattern.oodp.Observer;
 
 public class MakeMeeting extends JFrame {
-	public void MakeSchedule(UserDTO user,Group group) {
+	public void MakeMeeting(UserDTO user,Group group) {
 		JPanel panel = new JPanel();
 		Label l1 = new Label("회의 이름");
 		Label l2 = new Label("회의 날짜");
@@ -82,6 +84,11 @@ public class MakeMeeting extends JFrame {
 		setTitle("회의 기록 생성");
 		setVisible(true);
 		
+		//Observer Pattern
+		Subscriber page = new Subscriber();
+		Observer ob1 = new MeetingObserver();
+		page.subscribe(ob1);
+		
 		j1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,6 +104,10 @@ public class MakeMeeting extends JFrame {
 					    bos.write("!end!\n");
 						bos.close();
 						JOptionPane.showMessageDialog(null, t1.getText()+" 회의 기록이 생성되었습니다.");
+						
+						//Observer Pattern
+						page.renew();
+						
 						dispose();
 				}catch(Exception ex) {
 						JOptionPane.showMessageDialog(null, "회의 기록 작성에 실패했습니다.");
