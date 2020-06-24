@@ -109,7 +109,7 @@ public class ShowMeeting extends JFrame {
 		JTextField tfMember = new JTextField(10);
 		JTextField tfStartday = new JTextField(8);
 		JTextField tfEndday = new JTextField(8);
-		panel.add(new JLabel("Task"));
+		panel.add(new JLabel("Meeting"));
 		panel.add(tfName);
 		panel.add(new JLabel("Member(member1/member2 입력)"));
 		panel.add(tfMember);
@@ -133,7 +133,7 @@ public class ShowMeeting extends JFrame {
 		setLocationRelativeTo(null);
 
 		setSize(900, 500);
-		setTitle("업무 확인 페이지");
+		setTitle("회의 확인 페이지");
 		setVisible(true);
 		
 		//Observer Pattern
