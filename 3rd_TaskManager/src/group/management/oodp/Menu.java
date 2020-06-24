@@ -10,6 +10,7 @@ import decorate.design.pattern.oodp.IsLeaderTopping;
 import decorate.design.pattern.oodp.InChargeTopping;
 import task.management.oodp.TaskMenu;
 import schedule.management.oodp.ScheduleMenu;
+import meeting.management.oodp.MeetingMenu;
 import user.management.oodp.UserDTO;
 import visitor.design.pattern.oodp.*;
 
@@ -47,9 +48,12 @@ public class Menu {
 		buttonPanel.add(j2);
 		//j2.setBounds(250, 330, 80, 30);
 		
+		JButton j3 = new JButton("회의 관리");
+		buttonPanel.add(j3);
+		
 		//Visitor Pattern
-		int a = Client.calculate(group);
-		JLabel showMember = new JLabel("그룹 멤버 수: "+a);
+		int member = Client.calculate(group);
+		JLabel showMember = new JLabel("그룹 멤버 수: "+member);
 		f.add(showMember, BorderLayout.NORTH);
 
 		f.add(buttonPanel, BorderLayout.SOUTH);
@@ -57,6 +61,7 @@ public class Menu {
 		welcome.setFont(f1);
 		j1.setFont(f1);
 		j2.setFont(f1);
+		j3.setFont(f1);
 	
 		
 		j1.addActionListener(new ActionListener() {
@@ -80,6 +85,18 @@ public class Menu {
 			}
 			
 		});
+		
+		j3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MeetingMenu meetingMenu=new MeetingMenu();
+				meetingMenu.screen(user, group, color, f1);
+				
+			}
+			
+		});
+		
 	}
 	
 	//Template method Design Pattern : https://jdm.kr/blog/116
