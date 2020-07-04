@@ -334,10 +334,14 @@ deleteFile(int rowInt) : 테이뷰에서 마우스로 클릭한 index값을 받�
 
 ##### 1 - Singleton Design Pattern
 
+![image](https://user-images.githubusercontent.com/36908476/86516023-545cf880-be58-11ea-8d48-0b70303d2573.png)
+
 Singleton 디자인 패턴은 전역변수를 사용하지 않고 객체를 하나만 생성하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴입니다.
 로그인 객체는 여러개가 생성될 필요가 없기에, 로그인 클래스에 최초 한번만 메모리를 할당하고 생성자가 여러 차례 호출되더라도 최초에 생성된 객체를 반환하게 했습니다. getInstance() method를 실행하면 loginInstance가 반환됩니다.
 
 ##### 2 - Template Method Design Pattern
+![image](https://user-images.githubusercontent.com/36908476/86516026-59ba4300-be58-11ea-858f-66e274060a18.png)
+
 Template Mehotd Design pattern은 어떤 작업을 처리하는 일부분을 서브 클래스로 캡슐화해 전체 일을 수행하는 구조는 바꾸지 않으면서 특정 단계에서 수행하는 내역을 바꾸는 패턴입니다. 전체적으로는 동일하면서 부분적으로는 다른 구문으로 구성된 method의 코드 중복을 최소화 할 때 유용합니다.
 즉, 동일한 기능을 상위 클래스에서 정의하면서 확장/변화가 필요한 부분만 서브 클래스에서 구현할 수 있도록 한 것입니다.
 
@@ -345,9 +349,14 @@ Group은 SchoolGroup, CompanyGroup, OtherGroup으로 구성되고 이들 각각�
 
 
 ##### 3 - Factory Method Design Pattern
+
+![image](https://user-images.githubusercontent.com/36908476/86516036-6d65a980-be58-11ea-903a-18bde2872e7b.png)
+
 Factory Method Pattern에서는 객체를 생성하기 위한 Interface/Abstract Class를 정의하는데, 어떤 클래스의 인스턴스를 만들지는 서브클래스에서 결정하게 만듭니다. 팩토리 메소드 패턴을 이용하면 인스턴스를 만드는 일을 서브클래스에 맡기게 되는 것입니다. 
 
 ##### 4 - Observer design pattern 
+
+![image](https://user-images.githubusercontent.com/36908476/86516039-70f93080-be58-11ea-9577-431130306a81.png)
 
 Observer design pattern이란 behavioral pattern으로써 객체의 상태 변화를 관찰하는 관찰자들, 즉 옵저버들의 목록을 객체에 등록하여 상태 변화가 있을 때마다 메서드 등을 통해 객체가 직접 목록의 각 옵저버에게 통지하도록 하는 디자인 패턴이다.
 주로 분산 이벤트 핸들링 시스템을 구현하는 데 사용된다. 발행/구독 모델로 알려져 있기도 하다.
@@ -356,6 +365,9 @@ Observer design pattern이란 behavioral pattern으로써 객체의 상태 변�
 본 프로젝트에서는 옵저버 패턴이 주로 사용되는 유투브등의 구독 모델과 매우 유사하게 구현하였습니다. 구독자를 Task, Schedule, Meeting에 모두 만들어서 각자 변화가 있을 때 알림이 가도록 구현하였습니다.
 
 ##### 5 - State design pattern
+
+![image](https://user-images.githubusercontent.com/36908476/86516040-75254e00-be58-11ea-88b8-c024fec7c057.png)
+
 State Pattern은 객체가 특정 상태에 따라 행위를 달리하는 상황에서, 자신이 직접 상태를 체크하여 상태에 따라 행위를 호출하지 않고, 상태를 객체화 하여 State가 행동을 할 수 있게 위임하는 패턴입니다. 
 여기서 State는 객체가 가지는 조건이나 상황을 뜻합니다.
 
@@ -364,6 +376,9 @@ Run-time때 State에 따라서 action이 변합니다. 따라서 Task Management
 본 프로젝트에서 State design pattern을 사용한 이유는 run time때 유저가 누르는 값에 따라서 배경을 변경해야 할때 적용할 수 있을것이라 생각했고 스테이트 디자인 패턴을 사용했을때 효율적으로 봄,여름,가을,겨울 을 재사용하고 유용하게 사용할 수 있을것이라 생각해서 적용하였습니다.
 
 ##### 6 - Decorator design pattern 
+
+![image](https://user-images.githubusercontent.com/36908476/86516049-840c0080-be58-11ea-9890-ce42fe89e505.png)
+
 Decorator Pattern은 Structural design pattern중 하나로 객체의 결합을 통해 기능을 동적으로 유연하게 확장 할 수 있게 해주는 패턴입니다. 기본 기능에 새로운 기능을 추가할 때, 서브 클래스를 생성하는 것보다 주어진 상황 및 용도에 따라 동적으로 객체에 책임을 덧붙입니다.
 Component는 기본 기능을 뜻하는 ConcreteComponent와 추가 기능을 뜻하는 Decorator의 공통 기능을 정의합니다. 즉, 클라이언트는 Component를 통해 실제 객체를 사용합니다.
 ConcreteComponent는 기본 기능을 구현한 클래스입니다. 화장품과 쌩얼의 관계를 예시로 들자면 쌩얼에 속합니다.
@@ -374,6 +389,9 @@ ConcreteDecoratorA, ConcreteDecoratorB는 Decorator의 하위 클래스로 기�
 
 
 ##### 7 - Memento Design Pattern 
+
+![image](https://user-images.githubusercontent.com/36908476/86516055-879f8780-be58-11ea-9597-7a87b884609e.png)
+
 메멘토 디자인 패턴은 객체를 이전 상태로 되돌릴 수 있는 기능을 제공하는 디자인 패턴입니다.
 
 3개의 객체로 구현되는데 Originator, Caretaker, Memento 입니다. Originator는 memento 객체를 생성해서 originator의 snapshot을 저장합니다. 
@@ -384,10 +402,16 @@ memento는 originator의 state를 저장합니다. 외부에 state를 노출시�
 
 
 ##### 8 - Visitor Design Pattern
+
+![image](https://user-images.githubusercontent.com/36908476/86516056-8a9a7800-be58-11ea-9142-3aca5c4362e9.png)
+
 Visitor design pattern이란 behavioral pattern으로써 데이터 구조와 연산을 분리하여 데이터 구조의 원소들을 변경하지 않고 새로운 연산을 추가 할 수 있는 디자인 패턴입니다. 새로운 연산을 추가하려면 새로운 방문자를 추가하기만 하면 됩니다.
 오른쪽에는 Visitor와 VisitorImpl 이루어진 데이터 구조가 있습니다. 다만, 방문자를 수용하기 위해 Element 인터페이스를 상속받아서 accept() 메서드를 각각 구현하고 있으며 각 element의 경로를 구하는 연산 부분이 방문자에서 이루어집니다. 왼쪽에는 방문자로 데이터 구조를 방문하면서 필요한 연산을 수행합니다. 각 element에 접근하기 위한 visit메서드를 오버라이딩 및 오버로딩을 하고 있습니다
 
 ##### 9 - Command Design Pattern
+
+![image](https://user-images.githubusercontent.com/36908476/86516057-8d956880-be58-11ea-8cd4-70d461f66f36.png)
+
 Command Pattern이란 실행될 기능을 캡슐화함으로써 주어진 여러 기능을 실행할 수 있는, 재사용성이 높은 클래스를 설계하는 패턴입니다. 즉, 이벤트가 발생했을 때 실행될 기능이 다양하면서도 변경이 필요한 경우에 이벤트를 발생시키는 클래스를 변경하지 않고 재사용하고자 할 때 유용합니다. 실행될 기능을 캡슐화함으로써 기능의 실행을 요구하는 호출자(Invoker) 클래스와 실제 기능을 실행하는 수신자 (Receiver) 클래스 사이의 의존성을 제거합니다.
 
 이번 Task Manager에서는 Task(업무), Schedule(스케쥴), Meeting(회의) 관리 세가지 기능을 주 기능으로 제공했지만 기능을 추가할 때 유용할 수 있다고 판단했습니다. Client의 역할은 Menu가 합니다. Menu는 Command 객체를 만들어, Invoker객체로 setCommand() 메소드를 통해 전달합니다. Command interface가 존재하고 Concrete Command로 TaskCommand, ScheduleCommand, MeetingCommand가 있습니다. Receiver는 TaskMenu, ScheduleMenu, MeetingMenu가 되어서 Command가 execute() 함으로써 각 Receiver들이 action 할 수 있습니다. action은 screen()이 됩니다.
